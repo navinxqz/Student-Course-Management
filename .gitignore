@@ -1,0 +1,13 @@
+# Directories
+.vs
+.idea
+obj
+bin
+
+# Files
+*.user
+*.sln.docstates
+*.csproj
+*.obj
+*.sln
+*.msi
