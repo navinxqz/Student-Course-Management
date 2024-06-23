@@ -25,7 +25,7 @@
             }
             foreach(var item in list){
                 var deleted = item.IsDeleted();
-                Console.WriteLine("ID {0}: - {1} - {2}",item.GetID,item.GetName, deleted ?"Drop out":"Running");
+                Console.WriteLine("ID {0}: - {1} - {2}",item.GetId,item.GetName, deleted ?"Drop out":"Running");
             }
         }
         private static void Suspend(){  //op 4
@@ -50,6 +50,17 @@
                 }else{
                     Console.WriteLine("\nInvalid ID!\n");
                 }
+            }
+        }
+        private static void AddStudent(){
+            Console.WriteLine("Insert new Student's info");
+            foreach(int item in Enum.GetValues(typeof(Programs))){
+                Console.WriteLine("{0} - {1}",item, (Programs)item);
+            }Console.Write("Assign Program: ");
+
+            if(int.TryParse(Console.ReadLine(),out int value) && Enum.IsDefined(typeof(Programs),value)){
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
             }
         }
         }
