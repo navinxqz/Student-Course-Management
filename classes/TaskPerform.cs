@@ -5,7 +5,7 @@ namespace Project{
         public List<Methods> List(){
             return new List<Methods>(stulist);
         }
-        public void StudentAdd(Methods m){
+        public void Add(Methods m){
             stulist.Add(m);
         }
         public Methods GetId(int id){

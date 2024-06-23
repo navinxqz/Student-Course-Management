@@ -54,4 +54,3 @@
         }
         }
 }
-//console project for admins to manage students for adding dropping course, admission & kickout 🦖

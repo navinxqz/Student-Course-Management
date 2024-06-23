@@ -1,6 +1,6 @@
 namespace Project{
     public abstract class Abstruct{
-        public abstract int ID{get; protected set;}
+        public int ID{get; protected set;}
     }
     public enum Programs{
         ComputerScience = 1, BBA = 2, Law = 3,
@@ -12,6 +12,7 @@ namespace Project{
         private int AddDate{get; set;}
         private Programs program{get; set;}
         private string gender{get; set;}
+        private bool Deleted{get; set;}
 
         public Methods(int id,string Name, int AddDate,Programs program,string gender){
             this.Deleted = false;
@@ -34,7 +35,7 @@ namespace Project{
             return s;
         }
         public string GetName(){return Name;}
-        public int GetID(){return ID;}
+        public int GetId(){return ID;}
         public bool IsDeleted(){return Deleted;}
     }
 }
