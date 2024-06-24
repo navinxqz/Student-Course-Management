@@ -3,9 +3,8 @@ namespace Project{
         public int ID{get; protected set;}
     }
     public enum Programs{
-        ComputerScience = 1, BBA = 2, Law = 3,
-        CyberSecurity = 4,DataScience = 5,
-        Architecture = 6,Robotics = 7,ElectricalScience = 8
+        ComputerScience = 1, CyberSecurity,DataScience,
+        Architecture,Robotics,ElectricalScience,BBA,Law,
     }
     public class Methods : Abstruct{
         private string Name{get; set;}
