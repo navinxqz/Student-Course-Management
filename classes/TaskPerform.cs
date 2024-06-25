@@ -1,5 +1,5 @@
 namespace Project{
-    public class Task : Iface<Methods>{
+    public class Tasks : Iface<Methods>{
         private List<Methods> stulist = new();
 
         public List<Methods> List(){

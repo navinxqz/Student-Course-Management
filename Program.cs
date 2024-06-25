@@ -1,6 +1,6 @@
 ﻿namespace Project{
     class Program{
-        public static Task task = new();
+        public static Tasks tasks = new();
         private static string Option(){
             Console.WriteLine("\nWelcome admin! choose an option from below:");
 
@@ -17,7 +17,7 @@
         }
         private static void List(){ //op 1
             Console.WriteLine("\nList of all students:");
-            var list = task.List();
+            var list = tasks.List();
 
             if(list.Count == 0){
                 Console.WriteLine("\nNo student Available.\n");
@@ -32,9 +32,9 @@
             Console.Write("ID of the student to suspend: ");
             string sus = Console.ReadLine();
             if(int.TryParse(sus, out int id)){
-                var student = task.GetId(id);
+                var student = tasks.GetId(id);
                 if(student != null){
-                    task.Delete(id);
+                    tasks.Delete(id);
                     Console.WriteLine("Student Suspended Successfully.\n");
                 }
             }else{
@@ -44,15 +44,15 @@
         private static void About(){    //op 5
             Console.Write("Enter the student ID: ");
             if(int.TryParse(Console.ReadLine(), out int value)){
-                var info = task.GetId(value);
+                var info = tasks.GetId(value);
                 if(info != null){
                     Console.WriteLine(info);
+                }
                 }else{
                     Console.WriteLine("\nInvalid ID!\n");
-                }
             }
         }
-        private static void AddStudent(){
+        private static void AddStudent(){   //op 3
             Console.WriteLine("Insert new Student's info");
             foreach(int item in Enum.GetValues(typeof(Programs))){
                 Console.WriteLine($"{item} - {(Programs)item}");
@@ -64,12 +64,34 @@
 
                 Console.Write("Gender: ");
                 string gender = Console.ReadLine();
-                Console.Write("Admission Date: ");
+                Console.Write("Admission Date [dd-mm-yyyy]: ");
                 string date = Console.ReadLine();
 
-                Methods newMe = new(task.NextId(),(Programs)value,name,gender,date);
-                task.Add(newMe);
+                if(int.TryParse(date,out int d)){
+                    Methods m = new(tasks.NextId(),name,d,(Programs)value,gender);
+                    tasks.Add(m);
+                    System.Console.WriteLine("\nNew Student Added Successfully.\n");
+                }else{
+                    System.Console.WriteLine("Invalid Inputs!\n");
+                }
+            }else{
+                System.Console.WriteLine("Invalid Program!\n");
             }
+        }
+        public static void Main(string[] args){
+            string option = Option();
+
+            while(option.ToUpper() != "X"){
+                switch(option){
+                    case "1": List(); break;
+                    case "2": break;
+                    case "3": AddStudent(); break;
+                    case "4": Suspend(); break;
+                    case "5": About(); break;
+
+                    default: Console.WriteLine("\nInvalid option selected!\n"); break;
+                }option = Option();
+            }System.Console.WriteLine("Program End...");
         }
         }
 }
