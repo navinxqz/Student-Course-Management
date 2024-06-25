@@ -80,14 +80,16 @@
         }
         public static void Main(string[] args){
             string option = Option();
+            bool exit = false;
 
-            while(option.ToUpper() != "X"){
+            while(!exit){
                 switch(option){
                     case "1": List(); break;
                     case "2": break;
                     case "3": AddStudent(); break;
                     case "4": Suspend(); break;
                     case "5": About(); break;
+                    //case "X": exit = true; break;
 
                     default: Console.WriteLine("\nInvalid option selected!\n"); break;
                 }option = Option();
