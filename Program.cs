@@ -20,7 +20,7 @@
             var list = tasks.List();
 
             if(list.Count == 0){
-                Console.WriteLine("\nNo student Available.\n");
+                Console.WriteLine("\nNo student Available.");
                 return;
             }
             foreach(var item in list){
@@ -36,9 +36,9 @@
                 if(student != null){
                     tasks.Delete(id);
                     Console.WriteLine("Student Suspended Successfully.\n");
-                }
-            }else{
-                Console.WriteLine("Invalid ID!\n");
+                }else{
+                Console.WriteLine("\nNo Student Exist with that ID!");
+            }
             }
         }
         private static void About(){    //op 5
@@ -47,10 +47,10 @@
                 var info = tasks.GetId(value);
                 if(info != null){
                     Console.WriteLine(info);
-                }
                 }else{
-                    Console.WriteLine("\nInvalid ID!\n");
+                    Console.WriteLine("\nNo Student Exist with that ID!");
             }
+                }
         }
         private static void AddStudent(){   //op 3
             Console.WriteLine("Insert new Student's info");
