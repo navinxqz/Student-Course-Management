@@ -25,7 +25,7 @@
             }
             foreach(var item in list){
                 var deleted = item.IsDeleted();
-                Console.WriteLine($"ID {item.GetId}: - {item.GetName} - {(deleted ?"Drop out":"Running")}");
+                Console.WriteLine($"ID {item.ID}: - {item.GetName()} - {(deleted ?"Drop out":"Running")}");
             }
         }
         private static void Suspend(){  //op 4
@@ -64,7 +64,7 @@
 
                 Console.Write("Gender: ");
                 string gender = Console.ReadLine();
-                Console.Write("Admission Date [dd-mm-yyyy]: ");
+                Console.Write("Admission Year: ");
                 string date = Console.ReadLine();
 
                 if(int.TryParse(date,out int d)){
