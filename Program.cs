@@ -61,6 +61,14 @@
             if(int.TryParse(Console.ReadLine(),out int value) && Enum.IsDefined(typeof(Programs),value)){
                 Console.Write("Name: ");
                 string name = Console.ReadLine();
+
+                Console.Write("Gender: ");
+                string gender = Console.ReadLine();
+                Console.Write("Admission Date: ");
+                string date = Console.ReadLine();
+
+                Methods newMe = new(task.NextId(),(Programs)value,name,gender,date);
+                task.Add(newMe);
             }
         }
         }

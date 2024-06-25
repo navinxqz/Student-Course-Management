@@ -1,4 +1,5 @@
 namespace Project{
+    
     public interface Iface<T>{
         List<T> List();
         T GetId(int id);
