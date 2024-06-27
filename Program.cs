@@ -28,6 +28,32 @@
                 Console.WriteLine($"ID {item.ID}: - {item.GetName()} - {(deleted ?"Drop out":"Running")}");
             }
         }
+        private static void AddStudent(){   //op 3
+            Console.WriteLine("Insert new Student's info");
+            foreach(int item in Enum.GetValues(typeof(Programs))){
+                Console.WriteLine($"{item} - {(Programs)item}");
+            }Console.Write("Assign Program: ");
+
+            if(int.TryParse(Console.ReadLine(),out int value) && Enum.IsDefined(typeof(Programs),value)){
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Gender: ");
+                string gender = Console.ReadLine();
+                Console.Write("Admission Year: ");
+                string date = Console.ReadLine();
+
+                if(int.TryParse(date,out int d)){
+                    Methods m = new(tasks.NextId(),name,d,(Programs)value,gender);
+                    tasks.Add(m);
+                    Console.WriteLine("\nNew Student Added Successfully.\n");
+                }else{
+                    Console.WriteLine("Invalid Inputs!\n");
+                }
+            }else{
+                Console.WriteLine("Invalid Program!\n");
+            }
+        }
         private static void Suspend(){  //op 4
             Console.Write("ID of the student to suspend: ");
             string sus = Console.ReadLine();
@@ -49,42 +75,30 @@
                     Console.WriteLine(info);
                 }else{
                     Console.WriteLine("\nNo Student Exist with that ID!");
-            }
-                }
+            }}
         }
-        private static void AddStudent(){   //op 3
-            Console.WriteLine("Insert new Student's info");
-            foreach(int item in Enum.GetValues(typeof(Programs))){
-                Console.WriteLine($"{item} - {(Programs)item}");
-            }Console.Write("Assign Program: ");
+        private static void CM(){   //op 2
+            Console.WriteLine("\n\tCourse Management");
+            Console.Write("Input student ID: ");
 
-            if(int.TryParse(Console.ReadLine(),out int value) && Enum.IsDefined(typeof(Programs),value)){
-                Console.Write("Name: ");
-                string name = Console.ReadLine();
+            if(int.TryParse(Console.ReadLine(), out int id)){
+                var st = tasks.GetId(id);
+                if(st != null){
+                    System.Console.WriteLine("[1]\tAdd Course");
+                    System.Console.WriteLine("[2]\tDrop Course");
 
-                Console.Write("Gender: ");
-                string gender = Console.ReadLine();
-                Console.Write("Admission Year: ");
-                string date = Console.ReadLine();
-
-                if(int.TryParse(date,out int d)){
-                    Methods m = new(tasks.NextId(),name,d,(Programs)value,gender);
-                    tasks.Add(m);
-                    System.Console.WriteLine("\nNew Student Added Successfully.\n");
-                }else{
-                    System.Console.WriteLine("Invalid Inputs!\n");
+                    System.Console.Write("Select: ");
                 }
-            }else{
-                System.Console.WriteLine("Invalid Program!\n");
             }
         }
+
         static bool Login(){
             Console.Write("\n\tUsername: ");
             string uname = Console.ReadLine();
             Console.Write("\tPasscode: ");
             string pass = Console.ReadLine();
 
-            return(uname=="admin" && pass=="admin");
+            return(uname=="a" && pass=="a");
         }
         public static void Main(string[] args){
             if(Login()){

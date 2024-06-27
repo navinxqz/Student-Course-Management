@@ -4,13 +4,20 @@ namespace Project{
     }
     public enum Programs{
         ComputerScience = 1, CyberSecurity,DataScience,
-        Architecture,Robotics,ElectricalScience,BBA,Law,
+        Architecture,Robotics,ElectricalScience,BBA,LLB,
+    }
+    public enum CourseList{
+        Math =1, English, Accounting, DataStructures, BA,
+        Algorithms, Chemistry, DigitalCircuit, MachineLearning,
+        DesignTheory, Finance, Management, Marketing, Physics,
+        DesignStudio, Programming, Animation
     }
     public class Methods : Abstruct{
         private string Name{get; set;}
         private int AddYear{get; set;}
         private Programs program{get; set;}
         private string gender{get; set;}
+        private List<Management> Course{get; set;}
         private bool Deleted{get; set;}
 
         public Methods(int id,string Name,int AddYear,Programs program,string gender){
