@@ -78,7 +78,16 @@
                 System.Console.WriteLine("Invalid Program!\n");
             }
         }
+        static bool Login(){
+            Console.Write("\n\tUsername: ");
+            string uname = Console.ReadLine();
+            Console.Write("\tPasscode: ");
+            string pass = Console.ReadLine();
+
+            return(uname=="admin" && pass=="admin");
+        }
         public static void Main(string[] args){
+            if(Login()){
             string option = Option();
             bool exit = false;
 
@@ -89,11 +98,14 @@
                     case "3": AddStudent(); break;
                     case "4": Suspend(); break;
                     case "5": About(); break;
-                    //case "X": exit = true; break;
+                    case "X": exit = true; break;
 
                     default: Console.WriteLine("\nInvalid option selected!\n"); break;
                 }option = Option();
-            }System.Console.WriteLine("Program End...");
+            }Console.WriteLine("Program End...");
+        }else{
+            Console.WriteLine("Invalid username or pass!");
+        }
         }
         }
 }
